@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SyncMeet Meeting</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <div class="topbar">
+
+        <div>
+            <h2>SyncMeet</h2>
+            <p>Connect. Collaborate. Create.</p>
+        </div>
+
+        <div class="meeting-info">
+
+            <h3 id="meetingCode">
+                Meeting: SM-000000
+            </h3>
+
+            <div class="timer" id="timer">
+                00:00:00
+            </div>
+
+            <button id="copyCode">
+                Copy Code
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="video-section">
+
+        <div>
+
+            <video
+            id="localVideo"
+            autoplay
+            playsinline>
+            </video>
+
+            <div class="participants">
+                Participants: 1
+            </div>
+
+        </div>
+
+        <div class="chat-panel">
+
+            <h3>Meeting Chat</h3>
+
+            <div
+            id="chatMessages"
+            class="chat-box">
+            </div>
+
+            <input
+            type="text"
+            id="chatInput"
+            placeholder="Type a message">
+
+            <button id="sendChat">
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="controls">
+
+        <button id="startVideo">
+            📹 Camera
+        </button>
+
+        <button id="shareScreen">
+            🖥 Share Screen
+        </button>
+
+        <button id="whiteboardBtn">
+            ✏ Whiteboard
+        </button>
+
+        <button id="fileBtn2">
+            📁 Files
+        </button>
+
+        <button
+        class="leave-btn"
+        onclick="window.location.href='dashboard.html'">
+            🚪 Leave
+        </button>
+
+    </div>
+
+    <div
+    id="whiteboardSection"
+    style="display:none;">
+
+        <h3>Whiteboard</h3>
+
+        <div class="toolbar">
+
+            <button id="blackPen">
+                Black
+            </button>
+
+            <button id="redPen">
+                Red
+            </button>
+
+            <button id="bluePen">
+                Blue
+            </button>
+
+            <button id="greenPen">
+                Green
+            </button>
+
+            <button id="eraserBtn">
+                Eraser
+            </button>
+
+            <button id="clearBoard">
+                Clear
+            </button>
+
+        </div>
+
+        <canvas
+        id="whiteboard"
+        width="1000"
+        height="400">
+        </canvas>
+
+    </div>
+
+    <div class="files-panel">
+
+        <h3>Shared Files</h3>
+
+        <input
+        type="file"
+        id="fileInput"
+        style="display:none;">
+
+        <div id="fileName">
+
+            No files shared
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/room.js"></script>
+
+</body>
+</html>

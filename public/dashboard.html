@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SyncMeet Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <h1>SyncMeet</h1>
+
+    <p class="tagline">
+        Welcome to your collaboration workspace
+    </p>
+
+    <div class="dashboard-buttons">
+
+        <button id="instantMeeting">
+            Instant Meeting
+        </button>
+
+        <button id="createMeeting">
+            Create Meeting
+        </button>
+
+        <button id="joinMeeting">
+            Join Meeting
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+function generateCode(){
+
+    return "SM-" +
+    Math.floor(
+        100000 + Math.random()*900000
+    );
+
+}
+
+document
+.getElementById("instantMeeting")
+.addEventListener("click",()=>{
+
+    const code = generateCode();
+
+    localStorage.setItem(
+        "meetingCode",
+        code
+    );
+
+    window.location.href =
+    "room.html?room="+code;
+
+});
+
+document
+.getElementById("createMeeting")
+.addEventListener("click",()=>{
+
+    const code = generateCode();
+
+    navigator.clipboard.writeText(code);
+
+    alert(
+        "Meeting Created\n\nCode: "
+        + code +
+        "\n\nCopied to clipboard"
+    );
+
+});
+
+document
+.getElementById("joinMeeting")
+.addEventListener("click",()=>{
+
+    const code =
+    prompt("Enter Meeting Code");
+
+    if(!code) return;
+
+    localStorage.setItem(
+        "meetingCode",
+        code
+    );
+
+    window.location.href =
+    "room.html?room="+code;
+
+});
+
+</script>
+
+</body>
+</html>
