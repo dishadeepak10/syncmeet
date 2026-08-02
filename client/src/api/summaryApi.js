@@ -1,7 +1,7 @@
 import { db } from "../firebase/firebaseConfig";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://syncmeet-backend-4g4d.onrender.com";
 
 export async function generateSummary(transcript) {
   const response = await fetch(`${API_BASE_URL}/api/summary`, {
